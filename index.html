@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#101522">
+  <meta name="description" content="Numiro — your local-first universal AI assistant.">
+  <link rel="manifest" href="/manifest.webmanifest">
+  <link rel="icon" href="/icon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="/styles.css">
+  <title>Numiro AI</title>
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar" id="sidebar">
+      <div class="brand"><div class="brand-mark">N</div><span>NUMIRO</span></div>
+      <button class="new-chat" id="newChat">＋ New chat</button>
+      <div class="side-label">WORKSPACE</div>
+      <button class="nav-item active" data-view="chat">◈ <span>AI Assistant</span></button>
+      <button class="nav-item" data-view="search">⌕ <span>Internet search</span></button>
+      <button class="nav-item" data-view="builder">⌘ <span>Website planner</span></button>
+      <div class="sidebar-bottom">
+        <div class="status-dot"></div><span id="connection">Checking AI engine…</span>
+        <small>Local-first • Free starter</small>
+      </div>
+    </aside>
+
+    <main class="main">
+      <header class="topbar">
+        <button class="mobile-menu" id="menuBtn" aria-label="Open menu">☰</button>
+        <div><strong id="pageTitle">AI Assistant</strong><small>Universal intelligence workspace</small></div>
+        <div class="model-pill"><span class="pulse"></span><span id="modelName">Local AI</span></div>
+      </header>
+
+      <section class="view active" id="chatView">
+        <div class="welcome" id="welcome">
+          <div class="hero-icon">✳</div>
+          <p class="eyebrow">YOUR AI WORKSPACE</p>
+          <h1>What can we <span>create</span> today?</h1>
+          <p class="subheading">Ask questions, explore ideas, write code or plan your next big project.</p>
+          <div class="suggestions">
+            <button class="suggestion" data-prompt="Build a modern responsive portfolio website. Give me the complete code.">⌘ <span>Build a website</span></button>
+            <button class="suggestion" data-prompt="Explain how artificial intelligence works, from beginner to advanced.">✧ <span>Learn something</span></button>
+            <button class="suggestion" data-prompt="Help me plan and break down a complex project into steps.">◷ <span>Plan a project</span></button>
+            <button class="suggestion" data-prompt="Write a Python program that organises files by extension. Explain it.">‹/› <span>Write code</span></button>
+          </div>
+        </div>
+        <div class="messages" id="messages" aria-live="polite"></div>
+        <form class="composer" id="chatForm">
+          <textarea id="chatInput" rows="1" placeholder="Message Numiro or use the microphone…" required></textarea>
+          <div class="composer-bottom">
+            <div class="voice-controls">
+              <button class="voice-btn" id="micBtn" type="button" aria-label="Start voice input" title="Speak to Numiro">🎙 <span id="micLabel">Speak</span></button>
+              <label class="voice-toggle"><input type="checkbox" id="speakReplies" checked> <span>Read replies aloud</span></label>
+              <select id="voiceLanguage" aria-label="Voice language">
+                <option value="en-IN">English (India)</option>
+                <option value="hi-IN">हिन्दी</option>
+                <option value="en-US">English (US)</option>
+              </select>
+            </div>
+            <button class="send-btn" type="submit" aria-label="Send">↑</button>
+          </div>
+          <div class="voice-status" id="voiceStatus" role="status">Voice input works in supported browsers. Tap Speak and allow microphone access.</div>
+        </form>
+      </section>
+
+      <section class="view tool-view" id="searchView">
+        <div class="tool-heading"><p class="eyebrow">LIVE WEB LOOKUP</p><h1>Explore the <span>internet.</span></h1><p>Search the web and inspect returned source links.</p></div>
+        <form id="searchForm" class="tool-form"><input id="searchInput" placeholder="What do you want to find?" required><button>Search</button></form>
+        <div id="searchResults" class="results"></div>
+      </section>
+
+      <section class="view tool-view" id="builderView">
+        <div class="tool-heading"><p class="eyebrow">CREATION STUDIO</p><h1>Plan your next <span>website.</span></h1><p>Describe your idea. Numiro will create a structured build plan.</p></div>
+        <form id="builderForm" class="builder-form"><textarea id="builderInput" rows="5" placeholder="Example: Build a premium online store for a clothing brand with product pages, cart, login and admin dashboard…" required></textarea><button>Generate website plan ↗</button></form>
+        <pre id="builderOutput" class="builder-output"></pre>
+      </section>
+      <footer>NUMIRO <span>•</span> Built to grow with you</footer>
+    </main>
+  </div>
+  <script src="/app.js"></script>
+</body>
+</html>
